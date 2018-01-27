@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ScoreTest : MonoBehaviour
 {
-    public Text countText;
+    public Text scoreText;
     
     private int score;
 
@@ -21,6 +21,6 @@ public class ScoreTest : MonoBehaviour
     }
 
     void SetScoreText() {
-        countText.text = "Score: " + score.ToString();
+        scoreText.text = score.ToString();
     }
 }
