@@ -135,6 +135,7 @@ MonoBehaviour:
   speed: 5
   visionRadius: 6
   attackStrength: 1.76
+  joint: {fileID: 0}
 --- !u!212 &212697177658419070
 SpriteRenderer:
   m_ObjectHideFlags: 1

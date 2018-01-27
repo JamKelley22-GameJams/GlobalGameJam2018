@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 60467802014029110}
   m_Layer: 0
   m_Name: RedBloodCell
-  m_TagString: Enemy
+  m_TagString: NonInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7d8c09e270d7ea943802cd63256dc8b3, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.28516072}
+  m_Color: {r: 0.9191176, g: 0.17571367, b: 0.4371868, a: 0.2424322}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
