@@ -21,7 +21,7 @@ public class FlowScript : MonoBehaviour
     void Update()
     {
         float chance = Random.Range(0f, 10f);
-        if (chance >= 1/spawnRate)
+        if (chance >= 1/spawnRate && !PauseMenu.gameIsPaused)
         {
             GameObject cell;
             cell = Instantiate(redBloodCellPrefab, new Vector3(-transform.localScale.x / 2, Random.Range(-transform.localScale.y / 2, transform.localScale.y / 2), 0), Quaternion.identity);

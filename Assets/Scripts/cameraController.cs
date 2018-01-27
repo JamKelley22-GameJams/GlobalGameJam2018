@@ -23,7 +23,7 @@ public class cameraController : MonoBehaviour {
     private bool shake;
 
     void Start () {
-        offset = transform.position;
+        offset = new Vector3(0,0,transform.position.z);
         player = GameObject.FindWithTag("Player");
         //Debug.Log(player);
     }
