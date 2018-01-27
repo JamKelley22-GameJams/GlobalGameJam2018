@@ -28,7 +28,9 @@ public class FlowScript : MonoBehaviour
             
             cell.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(minVal, maxVal), 0);
 
-            redBloodCellPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, Random.Range(.2f, .3f));
+            Color c = redBloodCellPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
+            c.a = Random.Range(.2f, .3f);
+            redBloodCellPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color = c;
             //GFX.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, Random.Range(.15f, .2f));
             //Debug.Log(cell.transform.GetChild(0).GetComponent<SpriteRenderer>().color);
             StartCoroutine(fadeCell(cell));

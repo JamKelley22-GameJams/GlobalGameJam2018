@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour {
     [Range(5, 15)]
     public float visionRadius;
 
-    [Range(1, 5)]
+    [Range(0, 5)]
     public float attackStrength;
 
     private playerController playerController;
@@ -44,6 +44,15 @@ public class EnemyMovement : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, currTarget.transform.position, step);
         }
         //rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * maxSpeed, vertical * maxSpeed), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime);
+    }
+    
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Touch");
+            gameObject.transform.parent = other.gameObject.transform;
+        }
     }
 
     void OnCollisionStay2D(Collision2D other)
