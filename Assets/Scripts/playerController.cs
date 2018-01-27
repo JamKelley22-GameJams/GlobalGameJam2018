@@ -6,14 +6,13 @@ using UnityEngine;
 public class playerController : MonoBehaviour {
 
     private Rigidbody2D rb;
-    [Range(5,15)]
-    public float moveForce;
 
-    private float horizontal;
+    private static float horizontal;
     private float vertical;
 
     [Range(5, 15)]
     public float maxSpeed;
+    public float speed;
     [Range(0, 1)]
     public float moveTime;
 
@@ -21,12 +20,17 @@ public class playerController : MonoBehaviour {
 
     public bool tiltOn;
     //Tilting
+    [Range(0, 10)]
     public float smooth = 2.0F;
     public float tiltAngle = 30.0F;
 
+    private float initScale;
+
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-	}
+        initScale = transform.localScale.x;
+
+    }
 
     void Update()
     {
@@ -39,15 +43,26 @@ public class playerController : MonoBehaviour {
             Quaternion target = Quaternion.Euler(tiltAroundX, 0, tiltAroundZ);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
         }
-        //Quaternion targetZero = Quaternion.identity;
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * smooth);
-        if(Input.GetKey(KeyCode.Space))
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * smooth);
-        //Debug.Log(transform.rotation);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * smooth);
     }
 	
 	void FixedUpdate () {
-        rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * maxSpeed, vertical * maxSpeed), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime);
+        speed = maxSpeed * (initScale / transform.localScale.x);
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * speed, vertical * speed), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime)  ;
 
+    }
+
+    public void reduceSize(float dmg) {
+        transform.localScale = new Vector3(transform.localScale.x - (dmg / 100), transform.localScale.y - (dmg / 100), transform.localScale.z);
+    }
+
+    public void increaseSize(float dmg)
+    {
+        transform.localScale = new Vector3(transform.localScale.x + (dmg / 100), transform.localScale.y + (dmg / 100), transform.localScale.z);
+    }
+
+    public static float getHorizontal()
+    {
+        return horizontal;
     }
 }
