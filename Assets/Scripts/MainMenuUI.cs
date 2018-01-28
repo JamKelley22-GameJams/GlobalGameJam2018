@@ -10,9 +10,11 @@ public class MainMenuUI : MonoBehaviour {
     public Button PlayButton;
     public Button CreditsButton;
     public Button QuitButton;
+    public Button SettingsButton;
 
     void Start (){
         PlayButton.onClick.AddListener(GoToLevelSelect);
+        SettingsButton.onClick.AddListener(GoToSettings);
         CreditsButton.onClick.AddListener(GoToCredits);
         QuitButton.onClick.AddListener(QuitApplication);
     }
@@ -25,6 +27,10 @@ public class MainMenuUI : MonoBehaviour {
         SceneManager.LoadScene("Credits", LoadSceneMode.Single);
     }
 
+    void GoToSettings()
+    {
+        SceneManager.LoadScene("Settings", LoadSceneMode.Single);
+    }
 
     void QuitApplication() {
         Application.Quit();
