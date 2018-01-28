@@ -539,6 +539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1879245b86fea46a35cb9ac3d90610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayButton: {fileID: 752585203}
+  CreditsButton: {fileID: 1969476100}
   QuitButton: {fileID: 2045346951}
 --- !u!4 &985176756
 Transform:
