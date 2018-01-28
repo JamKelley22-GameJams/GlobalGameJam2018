@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1517650091336714
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393105108109424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.144384, y: -4.1096807, z: 431.35938}
+  m_LocalPosition: {x: 183.1, y: -6.1, z: 431.35938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4707418428904738}
@@ -137,10 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ccf361d49836043b6c760c951c01af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10.85
+  maxSpeed: 5.62
   speed: 5
-  visionRadius: 25
-  attackStrength: 0.69
+  visionRadius: 55
+  attackStrength: 3.38
 --- !u!212 &212074866402734038
 SpriteRenderer:
   m_ObjectHideFlags: 1

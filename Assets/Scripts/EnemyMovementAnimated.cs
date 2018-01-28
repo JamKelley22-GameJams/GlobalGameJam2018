@@ -9,7 +9,7 @@ public class EnemyMovementAnimated : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    [Range(5, 15)]
+    [Range(5, 30)]
     public float maxSpeed;
     public float speed;
 
@@ -22,6 +22,7 @@ public class EnemyMovementAnimated : MonoBehaviour
     public float attackStrength;
 
     private playerController playerController;
+    private cameraController camController;
 
     private float initScale;
 
@@ -35,6 +36,7 @@ public class EnemyMovementAnimated : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         initScale = transform.localScale.x;
         currTarget = GameObject.FindWithTag("Player");
+        camController = Camera.main.gameObject.GetComponent<cameraController>();
         playerController = currTarget.GetComponent<playerController>();
         //Debug.Log("CurrTarget: " + currTarget);
     }
@@ -83,8 +85,7 @@ public class EnemyMovementAnimated : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //Debug.Log("Touch");
-            //gameObject.transform.parent = other.gameObject.transform;
+            camController.setShake(true);
         }
     }
 
@@ -93,6 +94,15 @@ public class EnemyMovementAnimated : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerController.reduceSize(attackStrength);
+            //increaseSize(attackStrength);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            camController.setShake(false);
             //increaseSize(attackStrength);
         }
     }

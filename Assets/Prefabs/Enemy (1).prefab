@@ -147,11 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b21a632ae8e2649b9c594aec129686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0
-  speed: 0
-  visionRadius: 0
-  attackStrength: 0
-  anim: {fileID: 0}
+  maxSpeed: 30
+  speed: 5
+  visionRadius: 36.9
+  attackStrength: 0.39
+  anim: {fileID: 95763484148456576}
 --- !u!212 &212095631194077446
 SpriteRenderer:
   m_ObjectHideFlags: 1

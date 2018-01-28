@@ -45,6 +45,12 @@ public class cameraController : MonoBehaviour {
                 shakeAmount += shakeStepFactor;
             //shakeDuration -= Time.fixedDeltaTime * decreaseFactor;
         }
+        else if(shake)
+        {
+            transform.position = Random.insideUnitSphere * shakeAmount + transform.position;
+            if (shakeAmount < maxShake)
+                shakeAmount += shakeStepFactor*2;
+        }
         else
         {
             shakeDuration = 0f;
@@ -52,5 +58,10 @@ public class cameraController : MonoBehaviour {
                 shakeAmount -= shakeStepFactor;
             //transform.position = player.transform.position + offset;
         }
+    }
+
+    public void setShake(bool shake)
+    {
+        this.shake = shake;
     }
 }

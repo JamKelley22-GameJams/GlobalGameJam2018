@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour {
                                  new Vector3 (transform.localScale.x / 2, 0.05f, transform.localScale.z / 2),0);
 
 		foreach (Collider2D c in beneath) {
-			if (c.gameObject.CompareTag ("Floor")) {
+			if (c.gameObject.CompareTag ("Floor") || c.gameObject.CompareTag("Enemy")) {
 				grounded = true;
 			}
 		}

@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour {
     public float attackStrength;
 
     private playerController playerController;
+    private cameraController camController;
 
     private float initScale;
 
@@ -32,6 +33,7 @@ public class EnemyMovement : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         initScale = transform.localScale.x;
         currTarget = GameObject.FindWithTag("Player");
+        camController = Camera.main.gameObject.GetComponent<cameraController>();
         playerController = currTarget.GetComponent<playerController>();
         //Debug.Log("CurrTarget: " + currTarget);
     }
@@ -62,13 +64,12 @@ public class EnemyMovement : MonoBehaviour {
         }
         //rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * maxSpeed, vertical * maxSpeed), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime);
     }
-    
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            //Debug.Log("Touch");
-            //gameObject.transform.parent = other.gameObject.transform;
+            camController.setShake(true);
         }
     }
 
@@ -77,6 +78,15 @@ public class EnemyMovement : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             playerController.reduceSize(attackStrength);
+            //increaseSize(attackStrength);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            camController.setShake(false);
             //increaseSize(attackStrength);
         }
     }
