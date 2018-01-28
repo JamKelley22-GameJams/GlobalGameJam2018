@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4701068363949518}
   m_Layer: 0
   m_Name: Unit
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 61289114285823606}
   m_Layer: 0
   m_Name: TestWall
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1235436479708052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.255617, y: 0, z: -431.35938}
+  m_LocalPosition: {x: 260, y: 0, z: -431.35938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4831806693405332}
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402725890129548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12f71f32e90e18341a038ca59f636953, type: 3}
   m_Name: 
@@ -422,7 +422,7 @@ AreaEffector2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402725890129548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2

@@ -9,6 +9,11 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject pauseMenu;
 
+    void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -48,5 +53,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 }

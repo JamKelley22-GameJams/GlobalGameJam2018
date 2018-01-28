@@ -4,7 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class EnemyMovement : MonoBehaviour {
+public class EnemyMovementAnimated : MonoBehaviour
+{
 
     private Rigidbody2D rb;
 
@@ -24,10 +25,12 @@ public class EnemyMovement : MonoBehaviour {
 
     private float initScale;
 
+    public Animator anim;
     private SpriteRenderer sr;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         initScale = transform.localScale.x;
@@ -35,34 +38,47 @@ public class EnemyMovement : MonoBehaviour {
         playerController = currTarget.GetComponent<playerController>();
         //Debug.Log("CurrTarget: " + currTarget);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     void FixedUpdate()
     {
         float dist = transform.position.x - currTarget.transform.position.x;
+        //Debug.Log(rb.velocity.x);
+        anim.SetFloat("Horizontal", Mathf.Abs(dist));
+        Debug.Log(dist);
+        if (Mathf.Abs(dist) < visionRadius)
+            anim.SetBool("inRange", true);
+        else
+            anim.SetBool("inRange", false);
 
-        if (Vector3.Distance(currTarget.transform.position, transform.position) <= visionRadius) {
+        if (Vector3.Distance(currTarget.transform.position, transform.position) <= visionRadius)
+        {
             speed = maxSpeed * (initScale / transform.localScale.x);
             float step = speed * Time.fixedDeltaTime;
             Vector3 intermediate = Vector3.MoveTowards(transform.position, currTarget.transform.position, step);
-            
+
             if (dist > 0.1f)
             {
                 sr.flipX = false;
             }
-            else if(dist < 0.1f)
+            else if (dist < 0.1f)
             {
                 sr.flipX = true;
             }
             transform.position = intermediate;
         }
+        else
+        {
+            anim.SetFloat("Horizontal", 0f);
+        }
         //rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * maxSpeed, vertical * maxSpeed), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime);
     }
-    
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")

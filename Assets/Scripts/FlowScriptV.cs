@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlowScript : MonoBehaviour
+public class FlowScriptV : MonoBehaviour
 {
 
     public GameObject redBloodCellPrefab;
@@ -21,12 +21,12 @@ public class FlowScript : MonoBehaviour
     void Update()
     {
         float chance = Random.Range(0f, 10f);
-        if (chance >= 1/spawnRate && !PauseMenu.gameIsPaused)
+        if (chance >= 1 / spawnRate && !PauseMenu.gameIsPaused)
         {
             GameObject cell;
-            cell = Instantiate(redBloodCellPrefab, new Vector3(-transform.localScale.x / 2 + transform.position.x, Random.Range(-transform.localScale.y / 2, transform.localScale.y / 2) + transform.position.y, 0), transform.rotation);
-            
-            cell.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(minVal, maxVal), 0);
+            cell = Instantiate(redBloodCellPrefab, new Vector3(-transform.lossyScale.x / 2 + transform.position.x, Random.Range(-transform.localScale.x / 2, transform.localScale.x / 2) + transform.position.y, 0), transform.rotation);
+
+            cell.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -Random.Range(minVal, maxVal));
 
             Color c = redBloodCellPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().color;
             c.a = Random.Range(.2f, .3f);
