@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class playerController : MonoBehaviour {
@@ -16,6 +17,8 @@ public class playerController : MonoBehaviour {
     [Range(0, 1)]
     public float moveTime;
 
+    public Text scoreText;
+
     Vector2 reference;
 
     public bool tiltOn;
@@ -25,10 +28,14 @@ public class playerController : MonoBehaviour {
     public float tiltAngle = 30.0F;
 
     private float initScale;
+    private int score;
 
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         initScale = transform.localScale.x;
+
+        score = 0;
+        SetScoreText();
 
     }
 
@@ -58,11 +65,18 @@ public class playerController : MonoBehaviour {
 
     public void increaseSize(float dmg)
     {
+        score = score + 1;
+        SetScoreText();
         transform.localScale = new Vector3(transform.localScale.x + (dmg / 100), transform.localScale.y + (dmg / 100), transform.localScale.z);
     }
 
     public static float getHorizontal()
     {
         return horizontal;
+    }
+
+    void SetScoreText()
+    {
+        scoreText.text = score.ToString();
     }
 }
