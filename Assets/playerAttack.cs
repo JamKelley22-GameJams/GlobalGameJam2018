@@ -7,8 +7,10 @@ public class playerAttack : MonoBehaviour {
     [Range(5,20)]
     public int attackRadius;
 
-	// Use this for initialization
-	void Start () {
+    public float force;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -21,7 +23,9 @@ public class playerAttack : MonoBehaviour {
             {
                 if (collider.gameObject.tag == "Enemy")
                 {
-                    Debug.Log(collider.gameObject.name);
+                    Debug.Log(force * (collider.gameObject.transform.position - transform.position).normalized);
+
+                    collider.gameObject.GetComponent<Rigidbody2D>().AddForce(force * (collider.gameObject.transform.position - transform.position).normalized);
                 }
             }
         }

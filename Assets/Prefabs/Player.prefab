@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1137187605178092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -42.5, y: 0, z: 0}
+  m_LocalPosition: {x: -26.1, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4773185099156800}
@@ -87,8 +87,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.5
   m_AngularDrag: 6
-  m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 4ee5de08cd8529244b24a004309811f8, type: 2}
+  m_GravityScale: 0.5
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -101,7 +101,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1137187605178092}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4ee5de08cd8529244b24a004309811f8, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRadius: 6
+  force: 1000
 --- !u!114 &114999585020987102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,12 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a06d038e8ccdfe45a3ba6f56164064f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  maxSpeed: 15
   speed: 0
   moveTime: 0.2
-  tiltOn: 0
+  tiltOn: 1
   smooth: 10
   tiltAngle: 30
+  verticalAssistMult: 2
 --- !u!212 &212724321798900918
 SpriteRenderer:
   m_ObjectHideFlags: 1

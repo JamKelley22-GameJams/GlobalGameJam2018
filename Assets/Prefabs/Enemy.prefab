@@ -86,7 +86,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 1
-  m_GravityScale: 0
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -131,11 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ccf361d49836043b6c760c951c01af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 6.45
+  maxSpeed: 10.85
   speed: 5
-  visionRadius: 6
-  attackStrength: 1.76
-  joint: {fileID: 0}
+  visionRadius: 14.78
+  attackStrength: 0.69
 --- !u!212 &212697177658419070
 SpriteRenderer:
   m_ObjectHideFlags: 1

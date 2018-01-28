@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114193708571114082}
   m_Layer: 8
   m_Name: TargetCell
-  m_TagString: Enemy
+  m_TagString: NonInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

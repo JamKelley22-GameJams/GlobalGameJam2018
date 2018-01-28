@@ -25,16 +25,17 @@ public class EnemyMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        rb = GetComponent<Rigidbody2D>();
         initScale = transform.localScale.x;
         currTarget = GameObject.FindWithTag("Player");
         playerController = currTarget.GetComponent<playerController>();
-        Debug.Log("CurrTarget: " + currTarget);
+        //Debug.Log("CurrTarget: " + currTarget);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 
     void FixedUpdate()
     {
@@ -50,8 +51,8 @@ public class EnemyMovement : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Touch");
-            gameObject.transform.parent = other.gameObject.transform;
+            //Debug.Log("Touch");
+            //gameObject.transform.parent = other.gameObject.transform;
         }
     }
 
@@ -60,7 +61,7 @@ public class EnemyMovement : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             playerController.reduceSize(attackStrength);
-            increaseSize(attackStrength);
+            //increaseSize(attackStrength);
         }
     }
 

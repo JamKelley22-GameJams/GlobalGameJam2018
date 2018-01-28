@@ -26,6 +26,8 @@ public class playerController : MonoBehaviour {
 
     private float initScale;
 
+    public float verticalAssistMult;
+
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         initScale = transform.localScale.x;
@@ -48,17 +50,19 @@ public class playerController : MonoBehaviour {
 	
 	void FixedUpdate () {
         speed = maxSpeed * (initScale / transform.localScale.x);
-        rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * speed, vertical * speed), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime)  ;
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * speed, vertical * speed * verticalAssistMult), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime)  ;
 
     }
 
     public void reduceSize(float dmg) {
-        transform.localScale = new Vector3(transform.localScale.x - (dmg / 100), transform.localScale.y - (dmg / 100), transform.localScale.z);
+        if(transform.localScale.x > 1)
+            transform.localScale = new Vector3(transform.localScale.x - (dmg / 100), transform.localScale.y - (dmg / 100), transform.localScale.z);
     }
 
     public void increaseSize(float dmg)
     {
-        transform.localScale = new Vector3(transform.localScale.x + (dmg / 100), transform.localScale.y + (dmg / 100), transform.localScale.z);
+        if (transform.localScale.x < 3)
+            transform.localScale = new Vector3(transform.localScale.x + (dmg / 100), transform.localScale.y + (dmg / 100), transform.localScale.z);
     }
 
     public static float getHorizontal()
