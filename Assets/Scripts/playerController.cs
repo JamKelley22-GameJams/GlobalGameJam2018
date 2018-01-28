@@ -8,7 +8,7 @@ public class playerController : MonoBehaviour {
     private Rigidbody2D rb;
 
     private static float horizontal;
-    private float vertical;
+    //private float vertical;
 
     [Range(5, 15)]
     public float maxSpeed;
@@ -37,7 +37,7 @@ public class playerController : MonoBehaviour {
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        //vertical = Input.GetAxisRaw("Vertical");
 
         if(tiltOn) { 
             float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
@@ -50,7 +50,7 @@ public class playerController : MonoBehaviour {
 	
 	void FixedUpdate () {
         speed = maxSpeed * (initScale / transform.localScale.x);
-        rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * speed, vertical * speed * verticalAssistMult), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime)  ;
+        rb.velocity = Vector2.SmoothDamp(rb.velocity, new Vector2(horizontal * speed, 0), ref reference, moveTime, Mathf.Infinity, Time.fixedDeltaTime)  ;
 
     }
 
